@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>坦克大战</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"></link>
+	</head>
+	<body style="margin:0">
+		<canvas id="drawing" width="800" height="800" onmousemove="getCoordinates(event)" onclick="changeGrid(event)">地图</canvas>
+		<canvas id="tankMap" width="800" height="800" style="display:none;"></canvas>
+		<!-- Han: 事件绑定改了onmousemove，方便观察 -->
+		<div id="changeImg">
+			<div id="drawMap">
+				<input type="radio" name="backgroundImg"  value="ground"><span>空地<img id="ground" src='img/ground.jpg'><br>
+				<input type="radio" name="backgroundImg"  value="water"><span>水域<img id="water" src='img/water.jpg'></span><br>
+				<input type="radio" name="backgroundImg" value="wall"><span>红砖<img id="wall" src='img/wall.jpg'></span><br>
+				<input type="radio" name="backgroundImg" value="steel"><span>钢砖<img id="steel" src='img/steel.jpg'></span><br>
+				<input type="radio" name="backgroundImg" value="grass"><span>树林<img id="grass" src='img/grass.jpg'></span><br>
+				<input type="radio" name="backgroundImg" value="symbol"><span>基地<img id="symbol" src='img/symbol.jpg'></span><br>
+				<label>下载地图：</label><input id='downloadBtn' type="button" value="点击下载"><br>
+				<label>上传地图：</label><input type="file" id="file"  multiple ><br>
+				<div>
+					<div id="coordinates"></div>
+					<div id="block-coordinates"></div>
+				</div>
+				<input type="button" id="beginGame" onclick="beginGame();" value="开始游戏"> 
+			</div>
+			
+			<div style="display:none">
+				<label>我的坦克：</label>
+				<img id="tankU" src='img/tankU.png'>
+				<img id="tankD" src='img/tankD.png'>
+				<img id="tankL" src='img/tankL.png'>
+				<img id="tankR" src='img/tankR.png'>
+			</div>
+			
+			<fieldset>
+				<legend>公告</legend>
+				<p id="result"></p>
+			</fieldset>
+		</div>
+		
+		<script src="js/draw_map.js"></script>
+		<script src="js/begin_game.js"></script>
+	</body>
+</html>
+	
